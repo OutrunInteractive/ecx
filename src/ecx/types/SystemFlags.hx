@@ -1,7 +1,7 @@
 package ecx.types;
 
 @:dce @:final @:unreflective
-@:enum abstract SystemFlags(Int) {
+enum abstract SystemFlags(Int) {
 
     // system is not a part of game loop, update method is not called every frame
     var IDLE = 2;

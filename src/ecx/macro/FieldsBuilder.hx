@@ -46,15 +46,19 @@ class FieldsBuilder {
                         });
                     }
                     metas = [];
-                case ExprDef.EFunction(name, f):
-                    fields.push({
-                        name: getFieldName(name),
-                        doc: null,
-                        access: getAccess(name),
-                        kind: FieldType.FFun(f),
-                        pos: f.expr.pos,
-                        meta: metas
-                    });
+                case ExprDef.EFunction(kind, f):
+                    switch (kind) {
+                        case FNamed(name, inlined):
+                            fields.push({
+                                name: getFieldName(name),
+                                doc: null,
+                                access: getAccess(name),
+                                kind: FieldType.FFun(f),
+                                pos: f.expr.pos,
+                                meta: metas
+                            });
+                        default:
+                    }
                     metas = [];
                 default:
             }
