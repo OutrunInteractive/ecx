@@ -70,7 +70,7 @@ class SystemBuilder {
 										switch(param) {
 											case TypeParam.TPType(TPath(componentTypePath)):
 												var fullname = MacroUtil.getFullNameFromTypePath(componentTypePath);
-												familyTypeParams.push(macro #if !ecx_macro_debug @:pos($v{field.pos}) #end $i{fullname});
+												familyTypeParams.push(macro #if !ecx_macro_debug @:pos(field.pos) #end $i{fullname});
 												#if ecx_report
 												reportFamilyComponents.push(fullname);
 												#end
@@ -94,7 +94,7 @@ class SystemBuilder {
 									#end
 
 									exprs.push(macro {
-										#if !ecx_macro_debug @:pos(${field.pos}) #end $i{field.name} = _family($a{familyTypeParams});
+										#if !ecx_macro_debug @:pos(field.pos) #end $i{field.name} = _family($a{familyTypeParams});
 									});
 								}
 							}

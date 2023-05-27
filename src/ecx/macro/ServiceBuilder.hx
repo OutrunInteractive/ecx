@@ -107,7 +107,7 @@ class ServiceBuilder {
 				var injectField = injectFields[i];
 
 				var expr = macro $i{injectField.name} =
-					#if !ecx_macro_debug @:pos($v{injectField.pos}) #end
+					#if !ecx_macro_debug @:pos(injectField.pos) #end
 				__world.resolve($i{injectType[i]});
 
 				exprs.push(expr);

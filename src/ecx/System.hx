@@ -51,8 +51,8 @@ class System extends Service {
         return family.entities;
     }
 
-    @:nonVirtual @:unreflective @:extern
-    inline function _isIdle():Bool {
+    @:nonVirtual @:unreflective
+    extern inline function _isIdle():Bool {
         return _flags.has(SystemFlags.IDLE);
     }
 

@@ -5,7 +5,7 @@ package ecx.ds;
 @:dce
 class Cast {
 
-    @:extern inline public static function unsafe<TIn, TClass>(value:TIn, clazz:Class<TClass>):TClass {
+    extern inline public static function unsafe<TIn, TClass>(value:TIn, clazz:Class<TClass>):TClass {
         #if (cpp && haxe_ver >= 3.3)
         return (cpp.Pointer.fromRaw(cpp.Pointer.addressOf(value).rawCast()):cpp.Pointer<TClass>).value;
         #else
@@ -14,7 +14,7 @@ class Cast {
     }
 
     @:unreflective // no using / generic ?
-    @:extern inline public static function unsafe_T<TIn, TOut>(value:TIn):TOut {
+    extern inline public static function unsafe_T<TIn, TOut>(value:TIn):TOut {
         #if (cpp && haxe_ver >= 3.3)
         return (cpp.Pointer.fromRaw(cpp.Pointer.addressOf(value).rawCast()):cpp.Pointer<TOut>).value;
         #else
